@@ -11,13 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('crew', function (Blueprint $table) {
+        Schema::create('space_crafts', function (Blueprint $table) {
             $table->id('id');
-            $table->unsignedBigInteger('spacecraft_id');
-            $table->string('name');
-            $table->string('role');
+            $table->string('command_module');
+            $table->string('lunar_module');
             $table->timestamps();
-            $table->foreign('spacecraft_id')->references('spacecraft_id')->on('spacecraft')->onDelete('cascade');
         });
     }
 
@@ -26,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('crew');
+        Schema::dropIfExists('space_crafts');
     }
 };

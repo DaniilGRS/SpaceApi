@@ -11,10 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('spacecraft', function (Blueprint $table) {
-            $table->id('id');
-            $table->string('command_module');
-            $table->string('lunar_module');
+        Schema::create('crews', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('spacecraft_id')->constrained('space_crafts')->onDelete('cascade');
+            $table->string('name');
+            $table->string('role');
             $table->timestamps();
         });
     }
@@ -24,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('spacecraft');
+        Schema::dropIfExists('crews');
     }
 };
