@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\api\AuthController as ApiAuthController;
+use App\Http\Controllers\api\SpaceCraftController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -22,3 +23,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::post('/registration', [ApiAuthController::class, 'register']);
 Route::post('/authorization', [ApiAuthController::class, 'login']);
 Route::get('/logout', [ApiAuthController::class, 'logout'])->middleware('auth:sanctum');
+
+Route::post('/spacecraft', [SpaceCraftController::class, 'create']);
+Route::delete('/spacecraft/{id}', [SpaceCraftController::class, 'destroy']);
+Route::patch('/spacecraft/{id}', [SpaceCraftController::class, 'update']);
+Route::get('/spacecraft/{id}', [SpaceCraftController::class, 'show']);
