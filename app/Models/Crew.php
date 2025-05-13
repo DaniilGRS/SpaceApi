@@ -9,15 +9,14 @@ class Crew extends Model
 {
     use HasFactory;
 
-    public function spacecraft()
-    {
-        return $this->belongsTo(SpaceCraft::class);
-    }
-
     protected $fillable = [
         'spacecraft_id',
         'name',
         'role',
     ];
 
+    public function space_crafts()
+    {
+        return $this->belongsTo(SpaceCraft::class);
+    }
 }

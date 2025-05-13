@@ -14,9 +14,15 @@ return new class extends Migration
         Schema::create('mission', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->foreignId('launch_details_id')->constrained('launch_details')->onDelete('cascade');
-            $table->foreignId('landing_details_id')->constrained('landing_details')->onDelete('cascade');
-            $table->foreignId('spacecraft_id')->constrained('space_crafts')->onDelete('cascade');
+            $table->date('launch_date');
+            $table->string('launch_site_name');
+            $table->decimal('launch_site_latitude', 10, 7);
+            $table->decimal('launch_site_longitude', 10, 7);
+            $table->date('landing_date');
+            $table->string('landing_site_name');
+            $table->decimal('landing_site_latitude', 10, 7);
+            $table->decimal('landing_site_longitude', 10, 7);
+            $table->foreignId('spacecraft_id')->constrained('space_crafts');
             $table->timestamps();
         });
     }

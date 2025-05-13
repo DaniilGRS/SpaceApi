@@ -30,7 +30,7 @@ Route::delete('/spacecraft/{id}', [SpaceCraftController::class, 'destroy']);
 Route::patch('/spacecraft/{id}', [SpaceCraftController::class, 'update']);
 Route::get('/spacecraft/{id}', [SpaceCraftController::class, 'show']);
 
-Route::post('/lunar-mission', [LunarMissionController::class, 'create']);
-Route::delete('/lunar-mission/{id}', [LunarMissionController::class, 'destroy']);
-Route::patch('/lunar-mission/{id}', [LunarMissionController::class, 'update']);
-Route::get('/lunar-mission/{id}', [LunarMissionController::class, 'show']);
+Route::post('/lunar-missions', [LunarMissionController::class, 'store']);
+Route::get('/lunar-missions/{mission_id}', [LunarMissionController::class, 'show']);
+Route::patch('/lunar-missions/{mission_id}', [LunarMissionController::class, 'update']);
+Route::delete('/lunar-missions/{mission_id}', [LunarMissionController::class, 'destroy']);

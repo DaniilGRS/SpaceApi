@@ -9,14 +9,18 @@ class SpaceCraft extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'command_module',
+        'lunar_module',
+    ];
 
     public function crews()
     {
         return $this->hasMany(Crew::class, 'spacecraft_id');
     }
 
-    protected $fillable = [
-        'command_module',
-        'lunar_module',
-    ];
+    public function missions()
+    {
+        return $this->hasMany(Mission::class);
+    }
 }

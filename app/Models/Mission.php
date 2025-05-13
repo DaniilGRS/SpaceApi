@@ -9,25 +9,23 @@ class Mission extends Model
 {
     use HasFactory;
 
+    protected $table = 'mission';
+
     protected $fillable = [
         'name',
-        'launch_details_id',
-        'landing_details_id',
+        'launch_date',
+        'launch_site_name',
+        'launch_site_latitude',
+        'launch_site_longitude',
+        'landing_date',
+        'landing_site_name',
+        'landing_site_latitude',
+        'landing_site_longitude',
         'spacecraft_id',
     ];
 
-    public function launchDetails()
+    public function space_crafts()
     {
-        return $this->belongsTo(LaunchDetails::class);
-    }
-
-    public function landingDetails()
-    {
-        return $this->belongsTo(LandingDetails::class);
-    }
-
-    public function spacecraft()
-    {
-        return $this->belongsTo(Spacecraft::class);
+        return $this->belongsTo(Spacecraft::class, 'spacecraft_id');
     }
 }
